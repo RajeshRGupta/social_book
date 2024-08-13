@@ -11,13 +11,15 @@ class User(AbstractUser):
     email=models.EmailField(unique=True)
     public_visibility = models.BooleanField(default=True)
     birth_year = models.IntegerField(null=True, blank=True)
-    address = models.TextField(null=True, blank=True
+    address = models.TextField(null=True, blank=True)
+
     @property
     def age(self):
         if self.birth_year:
             current_year = date.today().year
             return current_year - self.birth_year
         return None
+    
     def name(self):
         return self.first_name + ' ' + self.last_name
     
