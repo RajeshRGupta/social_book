@@ -1,10 +1,41 @@
-{% extends 'base.html' %}
-{% load static %}
+{% extends 'base.html' %} {% load static %} {%block MainBody%}
 
-{%block MainBody%}
+<div class="main-form">
+  <div class="login">
 
-    <div class="main-form">
-        hii
+    <div class="card text-center">
+      <div class="card-header bg-transparent border-0">
+        <h2>LOGIN</h2>
+    </div>
+      <div class="card-body">
+        <form action='' method='post'>
+          {% csrf_token %}
+          <div class="formControl row g-3 mb-4">
+            <div class='col-6'>
+                <lable>EMAIL: </lable>
+            </div>
+            <div class='col-6'>
+                <input type='email' name='email'/>
+                {% comment %} {{form.email}} {% endcomment %}
+            </div>
+
+            <div class='col-6'>
+                <lable>PASSWORD: </lable>
+            </div>
+            <div class='col-6'>
+                <input type='password' name='password' />
+                {% comment %} {{form.password}} {% endcomment %}
+            </div>
+
+          </div>
+
+          <button type='submit' class="btn btn-primary">Login</button>
+         </div>
+
+        </form>
     </div>
 
-{%endblock MainBody%}
+  </div>
+</div>
+
+{%endblock MainBody%} {%block Script%}{%endblock Script%}
