@@ -65,7 +65,6 @@ def check_my_book(view_fun):
     @wraps(view_fun)
     def _wrapped_view(request):
         user=request.user
-        print('user:------------------',Books.objects.filter(user=request.user))
         if Books.objects.filter(user=request.user).exists():
             return view_fun(request)
         else:
