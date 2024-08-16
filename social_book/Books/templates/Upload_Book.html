@@ -1,0 +1,79 @@
+{% extends 'index.html' %} 
+{% load static %} 
+{%block MainBody%}
+
+
+
+<div class="page-header">
+					<div class="row">
+						<div class="col-md-6 col-sm-12">
+							<div class="title">
+								<h4>BOOKS ADD FORM</h4>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+
+				<!-- horizontal Basic Forms Start -->
+				<div class="pd-20 card-box mb-30">
+					
+                    <form action='' method='post' enctype="multipart/form-data">
+
+                        {% csrf_token %}
+
+                        <div class="form-group">
+                            <label>Book Name:</label>
+                            <input class="form-control" type="text" name='book_name' placeholder="Book Name">
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label>Book Publish Date:</label>
+                                    <input class="form-control" name="b_year_publish" type="number" placeholder="00000">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label>Book Cost:</label>
+                                    <input class="form-control"  type="number" name='b_cost' placeholder="000000">
+                                </div>
+                            </div>
+                        </div>
+
+
+                        
+
+                        {% comment %} <div class="form-group">
+							<label>Default Datedpicker</label>
+							<input class="form-control date-picker" placeholder="Select Date" type="text">
+						</div> {% endcomment %}
+
+                        <div class="form-group">
+                            <label>Textarea</label>
+                            <textarea class="form-control" name='b_description'></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Example file input</label>
+                            <input type="file" accept="application/pdf, image/jpeg" name='book' class="form-control-file form-control height-auto">
+                        </div>
+
+                        <div class="mb-30  ">
+							<label>Book Visibility</label>
+							<input type="checkbox" class="switch-btn" name="b_visibility" data-size="small" data-color="#28a745" data-secondary-color="#f56767">
+						</div>
+
+                        <button type='submit' class='btn btn-success'>ADD</button>
+
+
+                    </form>
+
+				</div>
+				<!-- horizontal Basic Forms End -->
+
+
+{%endblock MainBody%} 
+{%block Script%}{%endblock Script%}

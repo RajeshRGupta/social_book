@@ -1,0 +1,54 @@
+{% extends 'index.html' %} 
+{% load static %} 
+{%block MainBody%}
+
+<div class="page-header">
+
+    	<div class="row">
+						<div class="col-md-6 col-sm-12">
+							<div class="title">
+								<h4>Send Mail</h4>
+							</div>
+						</div>
+						<div class="col-md-6 col-sm-12 text-right">
+                            <a class="btn btn-primary " href="/bookUpload" role="button">
+                                ADD
+                            </a>
+						</div>
+					</div>
+				</div>
+
+    
+	<div class="card-box d-flex align-items-center flex-wrap justify-content-center py-5 mb-30">
+			<div class="login-box bg-white box-shadow border-radius-10 ">
+						<form action='' method='post'>
+                            {% csrf_token %}
+
+                            <input type="email" name='email' value="{{data}}" class="form-control form-control-lg mb-20">
+                            <input type="text" name='subject' class="form-control form-control-lg mb-20" placeholder="Subject">
+                            
+                            <textarea class="form-control mb-30" name="content" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+							
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="input-group mb-0">
+										<button type='submit' class="btn btn-primary btn-lg btn-block">Send</button>
+									</div>
+								</div>
+							</div>
+						</form>
+			</div>
+	</div>
+</div>
+
+
+
+
+</div>
+
+
+{%endblock MainBody%} 
+{%block Script%}
+<script src="{% static 'js/Book.js'%}" ></script>
+
+{%endblock Script%}

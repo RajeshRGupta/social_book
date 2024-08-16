@@ -5,7 +5,11 @@ from .models import *
 class UserRegistrationForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ('email', 'birth_year', 'address', 'public_visibility', 'password1', 'password2')
+        fields = ('email', 'full_name' ,'birth_year', 'address', 'public_visibility', 'password1', 'password2')
+        # widgets={
+        #     'public_visibility':forms.RadioSelect(choices=[(True, 'Yes'),(False, 'No')]),
+        # }
+        
 class UserLoginForm(AuthenticationForm):
     email = forms.EmailField()
     password = forms.CharField(max_length=100, widget=forms.PasswordInput)

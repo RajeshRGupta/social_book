@@ -1,7 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-from datetime import date
+from django.utils import timezone
+from datetime import date,timedelta
 from .manager import UserManager
+
 
 # Create your models here.
 
@@ -27,6 +29,16 @@ class User(AbstractUser):
     USERNAME_FIELD='email'
     REQUIRED_FIELDS=['full_name','birth_year']
     
-    def __str__(self):
-        return self.email
+    
+    
+
+class OTP(models.Model):
+    user=models.ForeignKey(User, on_delete=models.CASCADE)
+    otp_code=models.CharField(max_length=8,null=True,blank=True)
+    created_at=models.DateTimeField(auto_now_add=True)
+    resent = models.BooleanField(default=False) 
+    
+    def is_valid(self):
+        return timezone.now()<=self.created_at+timedelta(minutes=5)
+
 

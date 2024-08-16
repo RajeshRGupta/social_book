@@ -18,5 +18,9 @@ class UserAdmin(BaseUserAdmin):
         return obj.age
     age.short_description = 'Age'
     
+class OTPAdmin(admin.ModelAdmin):
+    list_display=['user','otp_code','created_at']
+    
     
 admin.site.register(User, UserAdmin)
+admin.site.register(OTP, OTPAdmin)

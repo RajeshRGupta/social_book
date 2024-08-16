@@ -1,0 +1,54 @@
+{% extends 'index.html' %} 
+{% load static %} 
+{%block MainBody%}
+
+			<div class="min-height-200px">
+
+                <div class="page-header">
+					<div class="row">
+						<div class="col-md-6 col-sm-12">
+							<div class="title">
+								<h4>Authors and Sellers</h4>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+                <div class="card-box mb-30">
+					<div class="pb-20">
+						<table class="table hover multiple-select-row data-table-export nowrap">
+							<thead>
+								<tr>
+									<th>Sr.</th>
+									<th class="table-plus datatable-nosort">Name</th>
+									<th>Email</th>
+									<th>Age</th>
+									<th>Address</th>
+								</tr>
+							</thead>
+							<tbody>
+
+                                {% for i in data %}
+
+                                <tr>
+									<td class="table-plus"> {{forloop.counter}}</td>
+									<td>{{i.full_name}}</td>
+									<td>{{i.email}}</td>
+									<td>{{i.age}}</td>
+									<td>{{i.address}}</td>
+								</tr>
+
+                                
+                                {% endfor %}
+
+
+					
+							</tbody>
+						</table>
+					</div>
+				</div>
+            </div>
+
+{%endblock MainBody%} 
+{%block Script%}{%endblock Script%}
